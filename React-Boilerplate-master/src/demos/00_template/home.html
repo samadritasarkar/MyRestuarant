@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aminia</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/react.min.js"></script>
+    <script src="../../js/react-dom.min.js"></script>
+    <script src="../../js/browser.min.js"></script>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script type="text/babel">
+    var MyLogo = React.createClass({
+        render: function() {
+            return (
+                <div className="w3-bar w3-black">
+                    <img className="img-responsive w3-bar-item" src={'img/logo.jpg'} />
+                    <h3 className="w3-bar-item">Aminia Family Restuarant</h3>
+                </div>
+            );
+        }
+    });
+
+    var MyMenu = React.createClass({
+        render: function() {
+            return (<a href={this.props.link} className="w3-bar-item w3-button w3-hover-opacity">{this.props.text}</a>);
+        }
+    });
+
+    var MyImage = React.createClass({
+        render: function() {
+            return (
+                <div className="w3-content">
+                    <img src={'img/tag.png'} className="w3-round" />
+                </div>
+            );
+        }
+    });
+
+    var MySlider = React.createClass({
+        render: function() {
+            return (
+                <div className="w3-content">
+                    <img className="w3-round" id="image" src={'img/image1.jpg'} />
+                    <div><center><b id="text">Aminia Restaurant, New Market</b></center></div>
+                </div>
+            );
+        }
+    });
+
+    var indexNow = 1;
+    var mySlides=["Aminia Restaurant, New Market", "Our Special Delight","Menu Card","Aminia Chicken Rezala","Dine Out"];
+
+    var MyChange = React.createClass({
+        prev: function() {
+
+            if(indexNow == 1)
+            {
+                indexNow=5;
+            }
+            else
+                indexNow--;
+            document.getElementById("image").src="img/image"+indexNow+".jpg";
+            document.getElementById("text").innerHTML=mySlides[indexNow-1];
+        },
+        next: function () {
+            if(indexNow == 5)
+            {
+                indexNow=1;
+            }
+            else
+                indexNow++;
+            document.getElementById("image").src="img/image"+indexNow+".jpg";
+            document.getElementById("text").innerHTML=mySlides[indexNow-1];
+        },
+        render: function() {
+            return (
+                <div className="w3-section">
+                    <button className="w3-button w3-light-grey" onClick={this.prev}>❮ Prev</button>
+                    <button className="w3-button w3-light-grey" onClick={this.next}>Next ❯</button>
+                </div>
+            );
+        }
+    });
+
+    var MyButton = React.createClass({
+        showSlide: function () {
+            document.getElementById("image").src="img/image"+this.props.slideno+".jpg";
+            document.getElementById("text").innerHTML=mySlides[this.props.slideno-1];
+        },
+        render: function() {
+            return (
+                <div className="w3-bar">
+                    <button className="w3-button demo" onClick={this.showSlide}>{this.props.slideno}</button>
+                </div>
+            );
+        }
+    });
+
+    var Home = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <h3 id="home" className="anchor">Home</h3>
+                    <p>
+                        Aminia is located in one of the busiest places in Kolkata-Garia. It is a one-stop destination for people who are in love with North Indian and Chinese cuisine. At Aminia, all your cravings for the specific authentic dishes, get an answer. To go with the flavors and ingredients, the restaurant sets an equally subtle ambiance that caters to the taste of people from different backgrounds. The considerate staff gives quick services. It is an ideal place for people who have an inclination towards non-vegetarian dishes. The nearest landmark is State Bank of India Branch.
+                    </p>
+                </div>
+            );
+        }
+    });
+
+    var AboutUs = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <h3 id="aboutus" className="anchor">About Us</h3>
+                    <div id="mp-tfa">
+                        <div id="mp-tfa-img">
+                            <img src={'img/image6.jpg'} id="pikachu" />
+                        </div>
+                        <p>
+                            Aminia is a branded chain of restaurants with twelve locations in Kolkata, India, which specialises in traditional Mughlai cuisine of Eastern India. It was founded by Mrs.Puja Bagchi in 1999. The restaurant is most noted for its special Biryani and Aminia Special. It was opened in 1929, and is a growing chain of restaurants within West Bengal. The restaurant is one of the fastest growing restaurants in Eastern India. It has been consistently ranked in the top 3 Mughlai Restaurants in Kolkata. The first outlet was opened in Zakaria Street opposite the Nakhoda Masjid.
+                            Aminia is a branded chain of restaurants with twelve locations in Kolkata, India, which specialises in traditional Mughlai cuisine of Eastern India. The restaurant is most noted for its special Biryani and Aminia Special. It was opened in 1929, and is a growing chain of restaurants within West Bengal. The restaurant is one of the fastest growing restaurants in Eastern India. It has been consistently ranked in the top 3 Mughlai Restaurants in Kolkata. The first outlet was opened in Zakaria Street opposite the Nakhoda Masjid.
+                            Aminia is a branded chain of restaurants with twelve locations in Kolkata, India, which specialises in traditional Mughlai cuisine of Eastern India. The restaurant is most noted for its special Biryani and Aminia Special. It was opened in 1929, and is a growing chain of restaurants within West Bengal. The restaurant is one of the fastest growing restaurants in Eastern India. It has been consistently ranked in the top 3 Mughlai Restaurants in Kolkata. The first outlet was opened in Zakaria Street opposite the Nakhoda Masjid.
+                            Aminia is a branded chain of restaurants with twelve locations in Kolkata, India, which specialises in traditional Mughlai cuisine of Eastern India. The restaurant is most noted for its special Biryani and Aminia Special. It was opened in 1929, and is a growing chain of restaurants within West Bengal. The restaurant is one of the fastest growing restaurants in Eastern India. It has been consistently ranked in the top 3 Mughlai Restaurants in Kolkata. The first outlet was opened in Zakaria Street opposite the Nakhoda Masjid.
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+    });
+
+    var HowWeWork = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <h3 id="howwework" className="anchor">How We Work</h3>
+                    <h5>Open from <strong>10.30AM to 10.30PM</strong></h5>
+                    Order from home:<strong>03412525183</strong>
+                    <h4>Our Menu Card</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="img/menu.jpg?w=700" data-size="700X1000" className="menuclass">
+                                    <img src={'img/menu.jpg'} className="menuimg" />
+                                </a>
+                            </td>
+                            <td>
+                                <a href="img/menu1.jpg?w=700" data-size="700X1000" className="menuclass">
+                                    <img src={'img/menu1.jpg'} className="menuimg" />
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            );
+        }
+    });
+
+    var ContactUs = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <h3 id="contactus" className="anchor">Contact Us</h3>
+                    <div>
+                        <h4>Aminia Family Restuarant</h4>
+                        <p>201/1, Rajarhat Road, Meena Tower Central Area, Chinar Park<br/>
+                            Kolkata - 700021,West Bengal<br/>
+                            <strong>Phone:</strong> 0341 2535578
+                            <strong> Order Number:</strong> 03412525183<br/>
+                            <strong>E-mail :</strong> aminia@gmail.com</p>
+                    </div>
+                    <div className="w3-center">
+                        <div className="mapouter w3-center">
+                            <div className="gmap_canvas w3-center">
+                                <iframe className="w3-center" id="gmap_canvas" src="https://maps.google.com/maps?q=aminia restuarant&t=&z=13&ie=UTF8&iwloc=&output=embed" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    });
+
+    var Footer = React.createClass({
+        render: function() {
+            return (
+                <div className="footer w3-container w3-blue-gray">
+                    <center>
+                        Name : Samadrita Sarkar
+                        <br />
+                        Address : RBC Road, Barasat, Kolkata-700124, West Bengal
+                        <br />
+                        Contact Number : 8697576553
+                        <br />
+                        <table>
+                            <tr>
+                                <td><a href="https://www.facebook.com/samadrita.sarkar.925" target="_blank" className="fa fa-facebook" ></a></td>
+                                <td><a href="https://twitter.com/ss20150004"  target="_blank" className="fa fa-twitter"></a></td>
+                                <td><a href="https://www.linkedin.com/in/samadrita-sarkar-0a9845133/"  target="_blank" className="fa fa-linkedin"></a></td>
+                                <td><a href="https://github.com/samadritasarkar" target="_blank" className="fa fa-github"></a></td>
+                            </tr>
+                        </table>
+                    </center>
+                    <br />
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <div>
+            <div className="header w3-container">
+                <MyLogo/>
+                <div className="w3-bar w3-black">
+                    <MyMenu link="#home" text="Home"/>
+                    <MyMenu link="#aboutus" text="About Us"/>
+                    <MyMenu link="#howwework" text="How We Work"/>
+                    <MyMenu link="#contactus" text="Contact Us"/>
+                </div>
+            </div>
+            <div className="main parallax w3-container">
+                <div>
+                    <center>
+                        <MyImage />
+                    </center>
+                    <br />
+                    <div className="slide-container">
+                        <center><MySlider/></center>
+                        <div className="w3-center">
+                            <MyChange/>
+                            <div>
+                                <MyButton slideno="1"/>
+                                <MyButton slideno="2"/>
+                                <MyButton slideno="3"/>
+                                <MyButton slideno="4"/>
+                                <MyButton slideno="5"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <Home />
+                    <AboutUs />
+                    <HowWeWork />
+                    <ContactUs />
+                </div>
+                <br />
+                <Footer/>
+            </div>
+        </div>
+        , document.getElementById('content'));
+
+</script>
+
+</body>
+</html>
